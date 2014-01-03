@@ -1,0 +1,12 @@
+Package: bible
+Type: Package
+Title: Info on the bible
+Version: 1.0
+Date: 2013-12-31
+Author: Dason Kurkiewicz
+Maintainer: Dason Kurkiewicz <dasonk@gmail.com>
+Description: Contains data on the books of the bible and some functions
+    to help with bible reading plans.
+License: MIT
+LazyData: true
+URL: https://github.com/Dasonk/Bible
