@@ -15,6 +15,7 @@
 #' @param list Character vector.  Contains all the readings in the plan
 #' with each reading taking a different element in the vector.
 #' @param day numeric.  The day in the reading plan to get the reading for
+#' @references \url{http://www.scribd.com/doc/12349985/Professor-Grant-Horners-Bible-Reading-System}
 #' 
 #' @export
 #' @examples

@@ -20,4 +20,7 @@ sapply(readings, getReading, day = 29)
 today <- sapply(readings, getReading, day = as.numeric(system("date +'\%j'", intern = T)))
 cat(paste(getReading(), collapse = "; "), "\\n")
 }
+\references{
+\url{http://www.scribd.com/doc/12349985/Professor-Grant-Horners-Bible-Reading-System}
+}
 
