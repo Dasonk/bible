@@ -1,14 +1,14 @@
-#' books
+#' bible
 #'
 #' A dataframe with the books of the bible
 #'
 #' @docType data
-#' @name books
-#' @usage books
+#' @name bible
+#' @usage bible
 #' @format A dataframe.  The first column is the book name. The second
 #'  column is the number of chapters in the book
 #' @examples
-#' books
+#' bible
 NULL
 
 #' readings

@@ -1,16 +1,16 @@
 \docType{data}
-\name{books}
-\alias{books}
-\title{books}
+\name{bible}
+\alias{bible}
+\title{bible}
 \format{A dataframe.  The first column is the book name. The second
  column is the number of chapters in the book}
 \usage{
-books
+bible
 }
 \description{
 A dataframe with the books of the bible
 }
 \examples{
-books
+bible
 }
 
