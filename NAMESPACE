@@ -1,1 +1,3 @@
+export(chaptersRead)
 export(getReading)
+export(proportionRead)

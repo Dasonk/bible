@@ -29,3 +29,32 @@ getReading <- function(day = NULL, offset = 0){
     
     sapply(readings, .getReading, day = day + offset)
 }
+
+#' Which chapters read so far
+#' 
+#' A vector of the chapters that have been read so far
+#' 
+#' @export
+chaptersRead <- function(){
+    today <- as.numeric(system("date +'%j'", intern = T))
+    days <- seq(1, today)
+    read <- lapply(days, getReading)
+    ordered <- as.vector(do.call(rbind, read))
+    out <- unique(unlist(ordered))
+    
+    out
+}
+
+nBible <- function(){
+    sum(bible[,2])
+}
+
+#' Proportion of bible read
+#' 
+#' Get the proportion of the bible read so far in the reading plan
+#' 
+#' @export
+proportionRead <- function(){
+    prop <- length(chaptersRead()) / nBible()
+    sprintf("%3.2f%%", prop * 100)
+}
