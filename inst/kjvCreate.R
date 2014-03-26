@@ -1,6 +1,8 @@
 library(bible) # assuming bible is already a dataset
+library(stringr)
 kjv <- read.csv("inst/KJV.csv", stringsAsFactor = FALSE, header = FALSE)
 colnames(kjv) <- c("ID", "Text")
+kjv$ID <- str_trim(kjv$ID)
 
 kjv$shortbook <- gsub("([[:alpha:]]+).*", "\\1", kjv[,"ID"])
 

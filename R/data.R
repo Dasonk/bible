@@ -25,3 +25,15 @@ NULL
 #' @examples
 #' readings
 NULL
+
+#' kjv
+#' 
+#' The King James Bible
+#' 
+#' @docType data
+#' @name kjv
+#' @usage kjv
+#' @format A data.frame
+#' @examples
+#' kjv
+NULL
