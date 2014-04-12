@@ -19,13 +19,24 @@ endtimes <- rep("06:30:00 AM", ndays)
 subject <- rep("Bible reading", ndays)
 myreadings <- sapply(days, function(day){paste0(getReading(day), collapse = "; ")})
 
+search <- gsub(";", ",", myreadings)
+search <- gsub(" ", "%20", search)
+bible <- "NLT"
+site<- paste0("http://www.biblegateway.com/passage/?search=", search, 
+              "&version=", bible)
+
+description <- paste(myreadings, site, sep = "\n\n")
+
+
 dat <- data.frame(Subject = subject,
                   "Start Date" = dates, 
                   "Start Time" = starttimes,
                   "End Date" = dates,
                   "End Time" = endtimes,
                   "All Day Event" = "False",
-                  Description = myreadings,
+                  Description = description,
                   check.names = FALSE)
 
-write.csv(dat, file = "Readings.csv", row.names = FALSE)
+write.csv(dat, file = "inst/Readings.csv", row.names = FALSE)
+
+
