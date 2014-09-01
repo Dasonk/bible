@@ -1,27 +1,33 @@
 # Generate csv to import into google calendar
-
 library(bible)
 
+planStart <- "09/01/14"
+calendarStart <- "09/01/14"
+calendarEnd <- "12/31/15"
+bible <- "ESV"
+STARTTIME <- "06:00:00 AM"
+ENDTIME   <- "06:30:00 AM"
 
-names <- scan(what = character(), n = 9, sep = ",")
-Subject,Start Date,Start Time,End Date,End Time,All Day Event,Description,Location,Private
+
+names <- c("Subject", "Start Date", "Start Time", "End Date", "End Time", 
+           "All Day Event", "Description", "Location", "Private")
 
 format <- "%m/%d/%y"
-yearstart <- as.Date("01/01/14", format = format)
-startDate <- as.Date("01/01/14", format = format)
-endDate <- as.Date("12/31/14", format = format)
+yearstart <- as.Date(planStart, format = format)
+startDate <- as.Date(calendarStart, format = format)
+endDate <- as.Date(calendarEnd, format = format)
 dates <- format(seq(startDate, endDate, by = 1), format = format)
 days <- seq(as.numeric(startDate - yearstart), as.numeric(endDate - yearstart)) + 1
 ndays <- length(days)
 
-starttimes <- rep("06:00:00 AM", ndays)
-endtimes <- rep("06:30:00 AM", ndays)
+starttimes <- rep(STARTTIME, ndays)
+endtimes <- rep(ENDTIME, ndays)
 subject <- rep("Bible reading", ndays)
 myreadings <- sapply(days, function(day){paste0(getReading(day), collapse = "; ")})
 
 search <- gsub(";", ",", myreadings)
 search <- gsub(" ", "%20", search)
-bible <- "NLT"
+
 site<- paste0("http://www.biblegateway.com/passage/?search=", search, 
               "&version=", bible)
 
